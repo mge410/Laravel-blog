@@ -164,7 +164,7 @@
                             </div>
 
                             <div class="single-sidebar-widget post-category-widget">
-                                <h4 class="single-sidebar-widget__title">Категории</h4>
+                                <h4 class="single-sidebar-widget__title">Топ 7 Категорий</h4>
                                 <ul class="cat-list mt-20">
                                     @foreach($categories as $category)
                                         <li>
