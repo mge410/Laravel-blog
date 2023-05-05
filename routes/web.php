@@ -13,15 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['namespace' => 'Main'], function () {
-    Route::group(['namespace' => 'Home'], function () {
-        Route::get('/', 'IndexController')->name('home.index');
-    });
+ Route::group(['namespace' => 'Home'], function () {
+     Route::get('/', 'IndexController')->name('home.index');
+ });
 
-    Route::group(['namespace' => 'Post', 'prefix' => 'posts'], function () {
-        Route::get('/', 'IndexController')->name('posts.index');
-    });
-});
+ Route::group(['namespace' => 'Post', 'prefix' => 'posts'], function () {
+     Route::get('/', 'IndexController')->name('posts.index');
+ });
 
 
 //Route::group(['namespace' => 'Personal', 'prefix' => 'personal', 'middleware' => ['auth', 'verified']], function () {

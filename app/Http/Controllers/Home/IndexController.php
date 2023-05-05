@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Main\Home;
+namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Post;
-use App\Models\Tag;
+use function view;
 
 class IndexController extends Controller
 {
@@ -15,6 +15,7 @@ class IndexController extends Controller
             return $category->posts->count();
         });
         $randomPost = Post::get()->random(6);
-        return view('main.home.index', compact('categories', 'randomPost'));
+        $mainPostsList = Post::withCount('likes')->withCount('comments')->get();
+        return view('main.home.index', compact('categories', 'randomPost', 'mainPostsList'));
     }
 }
