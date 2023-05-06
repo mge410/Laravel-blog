@@ -21,3 +21,4 @@ public_html/hot
 storage/*.key
 /.vagrant
 /public/plugins/
+/composer.lock

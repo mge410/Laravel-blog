@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Posts;
+namespace App\Http\Controllers\Post;
 
 use App\Http\Controllers\Controller;
+use function view;
 
 class IndexController extends Controller
 {
