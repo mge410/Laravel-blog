@@ -2623,3 +2623,9 @@ a {
 .main-content {
     min-height: 480px;
 }
+
+.post-image{
+    height: 420px;
+    width: 720px;
+    object-fit: cover;
+}
