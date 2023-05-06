@@ -16,6 +16,6 @@ class IndexController extends Controller
         });
         $randomPost = Post::get()->random(6);
         $mainPostsList = Post::withCount('likes')->withCount('comments')->get();
-        return view('main.home.index', compact('categories', 'randomPost', 'mainPostsList'));
+        return view('home.index', compact('categories', 'randomPost', 'mainPostsList'));
     }
 }
