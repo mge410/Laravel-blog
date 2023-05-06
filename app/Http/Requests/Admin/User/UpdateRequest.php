@@ -31,6 +31,11 @@ class UpdateRequest extends FormRequest
         ];
     }
 
+    /**
+     * Get a data error message in a request.
+     *
+     * @return array
+     */
     public function messages()
     {
         return [
