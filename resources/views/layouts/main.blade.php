@@ -23,8 +23,13 @@
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container box_1620">
                 <!-- Brand and toggle get grouped for better mobile display -->
-                <a class="navbar-brand logo_h" href=" {{ route('login') }} "><img src="img/cat-logo.svg" width="88px" alt=""><span style="font-size: 18px; position: relative; right: 10px; top: 2px; color: #ff9907">Войти</span></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                @auth
+                    <a class="navbar-brand logo_h" href=" {{ route('profile.index') }} "><img src="img/cat-logo.svg" width="88px" alt=""><span style="font-size: 18px; position: relative; right: 10px; top: 2px; color: #ff9907">Профиль</span></a>
+                @endauth
+                @guest
+                    <a class="navbar-brand logo_h" href=" {{ route('login') }} "><img src="img/cat-logo.svg" width="88px" alt=""><span style="font-size: 18px; position: relative; right: 10px; top: 2px; color: #ff9907">Войти</span></a>
+                @endguest
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>

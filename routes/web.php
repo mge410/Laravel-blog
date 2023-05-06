@@ -21,6 +21,10 @@ use Illuminate\Support\Facades\Route;
      Route::get('/', 'IndexController')->name('posts.index');
  });
 
+Route::group(['namespace' => 'Profile', 'prefix' => 'profile'], function () {
+    Route::get('/', 'IndexController')->name('profile.index');
+    Route::patch('/{user}', 'UpdateController')->name('profile.update');
+});
 
 //Route::group(['namespace' => 'Personal', 'prefix' => 'personal', 'middleware' => ['auth', 'verified']], function () {
 //    Route::group(['namespace' => 'Main', 'prefix' => 'main'], function () {

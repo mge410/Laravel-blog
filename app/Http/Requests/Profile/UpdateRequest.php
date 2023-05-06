@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Admin\User;
+namespace App\Http\Requests\Profile;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -27,7 +27,6 @@ class UpdateRequest extends FormRequest
             'name' => 'required|string',
             'email' =>'required|string|email|unique:users,email,' . $this->user_id,
             'user_id' => 'required|integer|exists:users,id',
-            'role' => 'required|integer',
         ];
     }
 
@@ -45,8 +44,6 @@ class UpdateRequest extends FormRequest
             'email.string' => 'Данные должны быть строчного типа',
             'email.email' => 'Введите корректный адрес электронной почты',
             'email.unique' => 'Пользователь с такой почтой существует',
-            'role.required' => 'Это поле необходимо для заполнения',
-            'role.integer' => 'Данные должны быть целочисленного типа',
         ];
     }
 }

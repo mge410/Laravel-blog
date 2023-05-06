@@ -42,10 +42,10 @@
                         <div class="form-group">
                             <label>Выберите роль пользователя</label>
                             <select class="form-control" name="role">
-                                @foreach($roles as $id => $role)
-                                    <option
-                                        value="{{$id}}" {{$id == $user->role ? 'selected' : ''}}>{{$role}}</option>
-                                @endforeach
+                            @foreach($roles as $role)
+                               <option
+                                   value="{{$role->id}}" {{$role->id == $user->role->id ? 'selected' : ''}}>{{$role->title}}</option>
+                            @endforeach
                             </select>
                             @error('role')
                             <div class="text-danger">
