@@ -3,12 +3,13 @@
 namespace App\Http\Controllers\Profile;
 
 use App\Http\Controllers\Controller;
-use function view;
+use App\Models\User;
 
 class IndexController extends Controller
 {
-    public function __invoke()
+    public function __invoke(User $user)
     {
-        return view('profile.index');
+        $user = auth()->user();
+        return view('profile.index', compact('user'));
     }
 }
