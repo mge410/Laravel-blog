@@ -25,25 +25,25 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href=" {{ route('admin.user.index') }} " class="nav-link active">
+                        <a href=" {{ route('admin.user.index') }} " class="nav-link {{ request()->routeIs('admin.user.index') ? 'active' : '' }}">
                             <i class="far fa-circle nav-icon"></i>
                             <p>users</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href=" {{ route('admin.post.index') }} " class="nav-link">
+                        <a href=" {{ route('admin.post.index') }} " class="nav-link {{ request()->routeIs('admin.post.index') ? 'active' : '' }}">
                             <i class="far fa-circle nav-icon"></i>
                             <p>posts</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href=" {{ route('admin.category.index') }} " class="nav-link">
+                        <a href=" {{ route('admin.category.index') }} " class="nav-link {{ request()->routeIs('admin.category.index') ? 'active' : '' }}">
                             <i class="far fa-circle nav-icon"></i>
                             <p>categories</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('admin.tag.index') }}" class="nav-link">
+                        <a href="{{ route('admin.tag.index') }}" class="nav-link {{ request()->routeIs('admin.tag.index') ? 'active' : '' }}">
                             <i class="far fa-circle nav-icon"></i>
                             <p>tags</p>
                         </a>
