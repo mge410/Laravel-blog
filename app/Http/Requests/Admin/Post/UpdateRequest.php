@@ -25,6 +25,7 @@ class UpdateRequest extends FormRequest
     {
         return [
             'title' => 'required|string',
+            'is_main' => 'required',
             'content' => 'required|string',
             'preview_image' => 'nullable|file',
             'main_image' => 'nullable|file',
@@ -43,5 +44,12 @@ class UpdateRequest extends FormRequest
             'preview_image.file' => 'Необходимо загрузить файл',
             'main_image.file' => 'Необходимо загрузить файл',
         ];
+    }
+
+    protected function prepareForValidation()
+    {
+        $this->merge([
+            'is_main' => $this->boolean('is_main'),
+        ]);
     }
 }
