@@ -39,8 +39,8 @@
                     <ul class="nav navbar-nav menu_nav justify-content-center">
                         <li class="nav-item active"><a class="nav-link" href=" {{ route('home.index') }} ">Домашняя</a></li>
                         <li class="nav-item"><a class="nav-link" href=" {{ route('posts.index') }} ">Посты</a>
-                        <li class="nav-item"><a class="nav-link" href="contact.html">Контакты</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contact.html">Поиск</a></li>
+                        <li class="nav-item"><a class="nav-link" href=" {{ route('contact.index') }} ">Контакты</a></li>
+                        <li class="nav-item"><a class="nav-link" href=" /about ">О нас</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right navbar-social" style="flex-wrap: nowrap">
                         <li><a href="https://vk.com/vvoronkov4"><img src=" {{ asset('img/icons-vk.svg') }} " width="30px" alt=""></a></li>
