@@ -20,7 +20,7 @@
                     <form action=" {{ route('profile.update', $user->id) }} " method="post">
                         @csrf
                         @method('PATCH')
-                        <div class="row flex-column align-content-xl-center">
+                        <div class="row flex-column align-content-center">
                             <input type="text" name="user_id" hidden value="{{ $user->id }}">
                             <div class="row flex-column card-body col-5">
                                 <div class="form-group">
@@ -39,13 +39,13 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="row flex-column align-content-xl-center">
+                                <div class="row flex-column align-content-center">
                                     <button type="submit" class="btn btn-info">Обновить профиль</button>
                                 </div>
                             </div>
                         </div>
                     </form>
-                    <form class="row flex-column align-content-xl-center" action="{{route('logout')}}" method="post">
+                    <form class="row flex-column align-content-center" action="{{route('logout')}}" method="post">
                         @csrf
                         <input class="btn btn-outline-danger" type="submit" value="Выйти">
                     </form>

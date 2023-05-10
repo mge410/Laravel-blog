@@ -39,8 +39,8 @@
                     <ul class="nav navbar-nav menu_nav justify-content-center">
                         <li class="nav-item active"><a class="nav-link" href=" {{ route('home.index') }} ">Домашняя</a></li>
                         <li class="nav-item"><a class="nav-link" href=" {{ route('posts.index') }} ">Посты</a>
-                        <li class="nav-item"><a class="nav-link" href="contact.html">Контакты</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contact.html">Поиск</a></li>
+                        <li class="nav-item"><a class="nav-link" href=" {{ route('contact.index') }} ">Контакты</a></li>
+                        <li class="nav-item"><a class="nav-link" href=" /about ">О нас</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right navbar-social" style="flex-wrap: nowrap">
                         <li><a href="https://vk.com/vvoronkov4"><img src=" {{ asset('img/icons-vk.svg') }} " width="30px" alt=""></a></li>
@@ -135,9 +135,6 @@
             </div>
         </div>
         <div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
-            <p class="footer-text m-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
         </div>
     </div>
 </footer>

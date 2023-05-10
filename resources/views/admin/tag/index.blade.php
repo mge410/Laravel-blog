@@ -48,30 +48,13 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Title</th>
-                                <th>Show</th>
-                                <th>Edit</th>
-                                <th>Delete</th>
                             </tr>
                             </thead>
                             <tbody>
                             @foreach($tags as $tag)
                                 <tr>
                                     <td> {{$tag->id}} </td>
-                                    <td> {{$tag->title}} </td>
-                                    <td><a href=" {{ route('admin.tag.show', $tag->id) }} "><i
-                                                class="far fa-eye"></i></a></td>
-                                    <td><a class="text-success"
-                                           href=" {{ route('admin.tag.edit', $tag->id) }} "><i
-                                                class="fas fa-pencil-alt"></i></a></td>
-                                    <td>
-                                        <form action="{{ route('admin.tag.destroy', $tag->id) }}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="border-0 bg-transparent">
-                                                <i class="fas fa-trash text-danger" role="button"></i>
-                                            </button>
-                                        </form>
-                                    </td>
+                                    <td> <a href=" {{ route('admin.post.show', $tag->id) }} ">{{$tag->title}} </a></td>
                                 </tr>
                             @endforeach
                             </tbody>

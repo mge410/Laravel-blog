@@ -15,11 +15,20 @@
 
         <!-- Main content -->
         <div class="content">
-            <div class="col-12">
+            <div class="col-8">
                 <form action=" {{ route('admin.post.update', $post->id) }} " method="post" enctype="multipart/form-data">
                     @csrf
                     @method('PATCH')
                     <div class="card-body">
+                        <div class="form-group col-8 d-flex">
+                            <label for="exampleInputFile">Отображать на главной</label>
+                            <input type="checkbox" class="form-control w-50" name="is_main" {{$post->is_main ? 'checked' : ''}}>
+                            @error('is_main')
+                            <div class="text-danger">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
                         <div class="form-group">
                             <input type="text" class="form-control" name="title" placeholder="Введите название поста"
                                    value="{{$post->title}}">
@@ -40,7 +49,7 @@
                         <div class="form-group">
                             <label for="exampleInputFile">Превью изображение</label>
                             <div class="w-25 mb-2">
-                                <img width="100%" src="{{ asset('storage/' . $post->preview_image) }}" alt="preview_image">
+                                <img width="100%" src="{{ str_contains($post->preview_image, 'http') ? $post->preview_image : Storage::url($post->preview_image)}}" alt="preview_image">
                             </div>
                             <div class="input-group">
                                 <div class="custom-file">
@@ -61,7 +70,7 @@
                         <div class="form-group">
                             <label for="exampleInputFile">Главное изображение</label>
                             <div class="w-25 mb-2">
-                                <img width="100%" src="{{ asset('storage/' . $post->main_image) }}" alt="main_image">
+                                <img width="100%" src="{{ str_contains($post->preview_image, 'http') ? $post->preview_image : Storage::url($post->preview_image)}}" alt="main_image">
                             </div>
                             <div class="input-group">
                                 <div class="custom-file">

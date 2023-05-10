@@ -48,30 +48,15 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Name</th>
-                                <th>Show</th>
-                                <th>Edit</th>
-                                <th>Delete</th>
+                                <th>Role</th>
                             </tr>
                             </thead>
                             <tbody>
                             @foreach($users as $user)
                                 <tr>
                                     <td> {{$user->id}} </td>
-                                    <td> {{$user->name}} </td>
-                                    <td><a href=" {{ route('admin.user.show', $user->id) }} "><i
-                                                class="far fa-eye"></i></a></td>
-                                    <td><a class="text-success"
-                                           href=" {{ route('admin.user.edit', $user->id) }} "><i
-                                                class="fas fa-pencil-alt"></i></a></td>
-                                    <td>
-                                        <form action="{{ route('admin.user.destroy', $user->id) }}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="border-0 bg-transparent">
-                                                <i class="fas fa-trash text-danger" role="button"></i>
-                                            </button>
-                                        </form>
-                                    </td>
+                                    <td> <a href=" {{ route('admin.post.show', $user->id) }} ">{{$user->name}} </a></td>
+                                    <td> {{$user->role->title}} </a></td>
                                 </tr>
                             @endforeach
                             </tbody>

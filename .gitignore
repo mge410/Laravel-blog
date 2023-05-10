@@ -22,3 +22,4 @@ storage/*.key
 /.vagrant
 /public/plugins/
 /composer.lock
+/package-lock.json

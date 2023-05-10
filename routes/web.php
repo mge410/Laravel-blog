@@ -2,41 +2,26 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+Route::group(['namespace' => 'Home'], function () {
+    Route::get('/', 'IndexController')->name('home.index');
+});
 
- Route::group(['namespace' => 'Home'], function () {
-     Route::get('/', 'IndexController')->name('home.index');
- });
+Route::group(['namespace' => 'Post', 'prefix' => 'posts'], function () {
+    Route::get('/', 'IndexController')->name('posts.index');
+});
 
- Route::group(['namespace' => 'Post', 'prefix' => 'posts'], function () {
-     Route::get('/', 'IndexController')->name('posts.index');
- });
+Route::group(['namespace' => 'Contact', 'prefix' => 'contact'], function () {
+    Route::get('/', 'IndexController')->name('contact.index');
+});
+
+Route::group(['namespace' => 'About', 'prefix' => 'about'], function () {
+     Route::get('/', 'IndexController')->name('about.index');
+});
 
 Route::group(['namespace' => 'Profile', 'prefix' => 'profile'], function () {
     Route::get('/', 'IndexController')->name('profile.index');
     Route::patch('/{user}', 'UpdateController')->name('profile.update');
 });
-
-//Route::group(['namespace' => 'Personal', 'prefix' => 'personal', 'middleware' => ['auth', 'verified']], function () {
-//    Route::group(['namespace' => 'Main', 'prefix' => 'main'], function () {
-//        Route::get('/', 'IndexController')->name('personal.posts.index');
-//    });
-//    Route::group(['namespace' => 'Main', 'prefix' => 'main'], function () {
-//        Route::get('/', 'IndexController')->name('personal.posts.index');
-//    });
-//    Route::group(['namespace' => 'Main', 'prefix' => 'main'], function () {
-//        Route::get('/', 'IndexController')->name('personal.posts.index');
-//    });
-//});
 
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'admin', 'verified']], function () {
