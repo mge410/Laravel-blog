@@ -16,7 +16,10 @@ use Illuminate\Support\Str;
 
 class StoreUserJob implements ShouldQueue
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+    use Dispatchable;
+    use InteractsWithQueue;
+    use Queueable;
+    use SerializesModels;
 
     private $data;
 

@@ -2,8 +2,6 @@
 
 namespace App\Http\Middleware;
 
-use App\Models\Role;
-use App\Models\User;
 use Closure;
 use Illuminate\Http\Request;
 
@@ -18,7 +16,7 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->user()->role->title !== 'admin'){
+        if (auth()->user()->role->title !== 'admin') {
             return redirect()->route('home.index');
         }
         return $next($request);
