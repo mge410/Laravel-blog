@@ -31,5 +31,4 @@ class FilterRequest extends FormRequest
             'tag_ids.*' => 'nullable|integer|exists:tags,id',
         ];
     }
-
 }

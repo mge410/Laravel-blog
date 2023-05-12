@@ -10,21 +10,19 @@ class Service
 {
     public function store($data)
     {
+        if (isset($data['tag_ids'])) {
+            $tagIds = $data['tag_ids'];
+            unset($data['tag_ids']);
+        }
 
-            if (isset($data['tag_ids'])){
-                $tagIds = $data['tag_ids'];
-                unset($data['tag_ids']);
-            }
+        $data['preview_image'] = Storage::disk('public')->put('/posts/images', $data['preview_image']);
+        $data['main_image'] = Storage::disk('public')->put('/posts/images', $data['main_image']);
 
-            $data['preview_image'] = Storage::disk('public')->put('/posts/images', $data['preview_image']);
-            $data['main_image'] = Storage::disk('public')->put('/posts/images', $data['main_image']);
+        $post = Post::firstOrCreate($data);
 
-            $post = Post::firstOrCreate($data);
-
-            if (isset($tagIds)){
-                $post->tags()->attach($tagIds);
-            }
-
+        if (isset($tagIds)) {
+            $post->tags()->attach($tagIds);
+        }
     }
 
     public function update($data, $post)
@@ -35,10 +33,10 @@ class Service
             $tagIds = $data['tag_ids'];
             unset($data['tag_ids']);
 
-            if (isset($data['preview_image'])){
+            if (isset($data['preview_image'])) {
                 $data['preview_image'] = Storage::disk('public')->put('/posts/images', $data['preview_image']);
             }
-            if (isset($data['main_image'])){
+            if (isset($data['main_image'])) {
                 $data['main_image'] = Storage::disk('public')->put('/posts/images', $data['main_image']);
             }
 
@@ -46,12 +44,11 @@ class Service
             $post->tags()->sync($tagIds);
 
             DB::commit();
-        } catch (\Exception $exception){
+        } catch (\Exception $exception) {
             DB::rollBack();
             abort(500);
         }
 
         return $post;
     }
-
 }

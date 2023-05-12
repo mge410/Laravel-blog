@@ -23,3 +23,4 @@ storage/*.key
 /public/plugins/
 /composer.lock
 /package-lock.json
+/.php-cs-fixer.cache

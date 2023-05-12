@@ -15,7 +15,7 @@ Route::group(['namespace' => 'Contact', 'prefix' => 'contact'], function () {
 });
 
 Route::group(['namespace' => 'About', 'prefix' => 'about'], function () {
-     Route::get('/', 'IndexController')->name('about.index');
+    Route::get('/', 'IndexController')->name('about.index');
 });
 
 Route::group(['namespace' => 'Profile', 'prefix' => 'profile'], function () {

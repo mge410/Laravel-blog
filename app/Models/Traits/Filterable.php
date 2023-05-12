@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Models\Traits;
-
 
 use App\Http\Filters\FilterInterface;
 use Illuminate\Database\Eloquent\Builder;
