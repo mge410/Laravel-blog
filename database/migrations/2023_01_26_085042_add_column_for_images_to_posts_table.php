@@ -27,8 +27,7 @@ class AddColumnForImagesToPostsTable extends Migration
     public function down()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->dropColumn('preview_image');
-            $table->dropColumn('main_image');
+            $table->dropColumn(['preview_image', 'main_image']);
         });
     }
 }
