@@ -19,12 +19,15 @@ class DatabaseSeeder extends Seeder
     {
         Category::factory(20)->create();
         User::factory(50)->create();
-        $tags =Tag::factory(20)->create();
+        $tags = Tag::factory(20)->create();
         $posts = Post::factory(130)->create();
 
         foreach ($posts as $post) {
             $tagsId = $tags->random(5)->pluck('id');
             $post->tags()->attach($tagsId);
+            if ($post->id % 35 == 0) {
+                $post->update(['is_main' => 1]);
+            }
         }
     }
 }

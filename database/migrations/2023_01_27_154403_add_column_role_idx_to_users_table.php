@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class AddColumnRoleIdxToUsersTable extends Migration
@@ -29,9 +30,13 @@ class AddColumnRoleIdxToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropForeign('user_role_fk');
-            $table->dropIndex('role_idx');
-            $table->dropColumn('role_id');
+            if (DB::getDriverName() !== 'sqlite') {
+                $table->dropForeign('user_role_fk');
+                $table->dropIndex('role_idx');
+                $table->dropColumn('role_id');
+            } else {
+                $table->dropColumn('role_id');
+            }
         });
     }
 }
