@@ -1,5 +1,7 @@
+name: Linter
+
 on: [push, pull_request]
-name: Main
+
 jobs:
   php-cs-fixer:
     name: PHP-CS-Fixer
