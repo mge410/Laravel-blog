@@ -23,10 +23,9 @@ Route::group(['namespace' => 'Profile', 'prefix' => 'profile'], function () {
     Route::patch('/{user}', 'UpdateController')->name('profile.update');
 });
 
-
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'admin', 'verified']], function () {
-    Route::group(['namespace' => 'Main', 'prefix' => 'main'], function () {
-        Route::get('/', 'IndexController')->name('admin.posts.index');
+    Route::group(['namespace' => 'Home', 'prefix' => 'home'], function () {
+        Route::get('/', 'IndexController')->name('admin.home.index');
     });
 
     Route::group(['namespace' => 'Post', 'prefix' => 'posts'], function () {
