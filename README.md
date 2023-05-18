@@ -1,6 +1,7 @@
 # Laravel-blog
 
 [![Php cs fixer](https://github.com/mge410/Laravel-blog/actions/workflows/linter.yml/badge.svg)](https://github.com/mge410/Laravel-blog/actions/workflows/linter.yml)
+[![Laravel-tests](https://github.com/mge410/Laravel-blog/actions/workflows/test.yml/badge.svg)](https://github.com/mge410/Laravel-blog/actions/workflows/test.yml)
 
 **Запуск проекта**
 
