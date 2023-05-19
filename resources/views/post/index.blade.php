@@ -1,11 +1,14 @@
 @extends('layouts.main')
 @section('content')
     <main class="site-main">
-        <div class="row">
-            <form action="" class="form">
-
-            </form>
-        </div>
+{{--        <div class="row flex-column align-items-center">--}}
+{{--            <div class="row col-8">--}}
+{{--                <form action="" class="form" method="get">--}}
+{{--                    <label for="title">Title</label>--}}
+{{--                    <input type="text" name="title" value="{{ old('title') }}">--}}
+{{--                </form>--}}
+{{--            </div>--}}
+{{--        </div>--}}
         <!--================ Start Blog Post Area =================-->
         <section class="blog-post-area section-margin">
             <div class="container">
@@ -27,7 +30,7 @@
                                                 <h3>{{ $post->title }}</h3>
                                             </a>
                                             <p>{{ $post->content }}</p>
-                                            <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
+                                            <a class="button" href="{{ route('posts.show', $post->id) }}">Read More <i class="ti-arrow-right"></i></a>
                                         </div>
                                     </div>
                                 </div>

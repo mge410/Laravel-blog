@@ -49,7 +49,7 @@
                         <div class="form-group">
                             <label for="exampleInputFile">Превью изображение</label>
                             <div class="w-25 mb-2">
-                                <img width="100%" src="{{ str_contains($post->preview_image, 'http') ? $post->preview_image : Storage::url($post->preview_image)}}" alt="preview_image">
+                                <img width="100%" src="{{ str_contains($post->main_image, 'http') ? $post->main_image : Storage::url($post->main_image)}}" alt="preview_image">
                             </div>
                             <div class="input-group">
                                 <div class="custom-file">

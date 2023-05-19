@@ -25,20 +25,17 @@
         <!-- Left navbar links -->
         <div class="col-12 d-flex justify-content-between">
         <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href=" {{ route('home.index') }} " class="nav-link">Home</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="index3.html" class="nav-link">Home</a>
+                <a href=" {{ route('posts.index') }} " class="nav-link">Posts</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="#" class="nav-link">Posts</a>
+                <a href=" {{ route('contact.index') }} " class="nav-link">Contact</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="#" class="nav-link">Contact</a>
-            </li>
-            <li class="nav-item d-none d-sm-inline-block">
-                <a href="#" class="nav-link">Search</a>
+                <a href=" {{ route('about.index') }} " class="nav-link">About</a>
             </li>
         </ul>
         <ul class="navbar-nav">

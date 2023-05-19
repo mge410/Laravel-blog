@@ -2629,3 +2629,8 @@ a {
     width: 720px;
     object-fit: cover;
 }
+
+.admin-btn {
+    color: deeppink !important;
+    font-weight: bold !important;
+}

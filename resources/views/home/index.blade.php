@@ -22,14 +22,16 @@
                     @foreach($randomPost as $post)
                         <div class="card blog__slide text-center">
                             <div class="blog__slide__img">
-                                <img class="card-img rounded-0" width="350px" height="200px"
+                                <img class="card-img rounded-0" width="350px"
+                                     height="200px"
                                      src="{{ str_contains($post->preview_image, 'http') ? $post->preview_image : Storage::url($post->preview_image)}}"
                                      alt="">
                             </div>
                             <div class="blog__slide__content">
-                                <a class="blog__slide__label" href="#">Подробнее</a>
+                                <a class="blog__slide__label"
+                                   href="{{ route('posts.show', $post->id) }}">Read
+                                    More</a>
                                 <h3><a href="#"> {{ $post->title }} </a></h3>
-                                <p>2 days ago</p>
                             </div>
                         </div>
                     @endforeach
@@ -51,28 +53,37 @@
                                              src="{{ str_contains($mainPost->preview_image, 'http') ? $mainPost->preview_image : Storage::url($mainPost->preview_image)}}"
                                              alt="">
                                         <ul class="thumb-info">
-                                            <li><a href="#"><i class="ti-notepad"></i>{{$mainPost->created_at}}</a></li>
-                                            <li><a href="#"><i class="ti-heart"></i>{{$mainPost->likes_count}}</a></li>
-                                            <li><a href="#"><i class="ti-themify-favicon"></i>2 Comments</a></li>
+                                            <li><i
+                                                        class="ti-notepad"></i>{{$mainPost->created_at}}
+                                                </li>
+                                            <li><a href="#"><i
+                                                        class="ti-heart"></i>{{$mainPost->likes_count}}
+                                                </a></li>
+                                            <li><a href="#"><i
+                                                        class="ti-themify-favicon"></i>{{$mainPost->comments_count}}
+                                                    Comments</a></li>
                                         </ul>
                                     </div>
                                     <div class="details mt-20">
                                         <a href="blog-single.html">
-                                            <h3>Woman claims husband wants to name baby girl
-                                                after his ex-lover sparking.</h3>
+                                            <h3>{{ $post->title }}</h3>
                                         </a>
-                                        <p class="tag-list-inline">Tag: <a href="#">travel</a>, <a href="#">life
-                                                style</a>, <a href="#">technology</a>, <a href="#">fashion</a></p>
-                                        <p>Over yielding doesn't so moved green saw meat hath fish he him from given
-                                            yielding lesser cattle were fruitful lights. Given let have, lesser their
-                                            made him above gathered dominion sixth. Creeping deep said can't called
-                                            second. Air created seed heaven sixth created living</p>
-                                        <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
+                                        <p class="tag-list-inline">
+                                            Tags:
+                                            @foreach($post->tags as $tag)
+                                                <a href="#">{{$tag->title}}</a>
+                                            @endforeach
+                                            </p>
+                                        <p>{{ $post->content }}</p>
+                                        <a class="button"
+                                           href="{{ route('posts.show', $post->id) }}">Read
+                                            More <i class="ti-arrow-right"></i></a>
                                     </div>
                                 </div>
                             @endforeach
                         @else
-                            <p class="text-center display-3">Похоже тут ещё нету постов =(</p>
+                            <p class="text-center display-3">Похоже тут ещё нету
+                                постов =(</p>
                         @endif
                     </div>
 
