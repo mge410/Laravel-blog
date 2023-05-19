@@ -40,7 +40,10 @@
                         <li class="nav-item active"><a class="nav-link" href=" {{ route('home.index') }} ">Домашняя</a></li>
                         <li class="nav-item"><a class="nav-link" href=" {{ route('posts.index') }} ">Посты</a>
                         <li class="nav-item"><a class="nav-link" href=" {{ route('contact.index') }} ">Контакты</a></li>
-                        <li class="nav-item"><a class="nav-link" href=" /about ">О нас</a></li>
+                        <li class="nav-item"><a class="nav-link" href=" {{ route('about.index') }} ">О нас</a></li>
+                        @can('view', auth()->user())
+                            <li class="nav-item"><a class="nav-link admin-btn" href=" {{ route('admin.home.index') }} ">Админка</a></li>
+                        @endcan
                     </ul>
                     <ul class="nav navbar-nav navbar-right navbar-social" style="flex-wrap: nowrap">
                         <li><a href="https://vk.com/vvoronkov4"><img src=" {{ asset('img/icons-vk.svg') }} " width="30px" alt=""></a></li>
