@@ -7,7 +7,7 @@ services:
       - ./:/var/www/
       - ./_docker/nginx/conf.d/:/etc/nginx/conf.d/
     ports:
-      - "8876:80"
+      - "8000:80"
     depends_on:
       - app
     container_name: nginx_blog
