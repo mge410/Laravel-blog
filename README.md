@@ -12,26 +12,24 @@
 
 PS. Команду с загрузкой тестовых данных для ролей пользователей выполнять обязательно. Для запуска потребуется запустить [Docker desktop](https://www.docker.com/products/docker-desktop/).
 
-
-**Запуск проекта с Docker**
-
-| Docker                                                                                                                                                                                     |
+| **Запуск проекта с Docker**                                                                                                                                                                |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **1** Поднимаем контейнер: <br>  ```docker-compose up -d```                                                                                                                                |
 | **2** Заходим в контейнер и все следующие команды выполняем в нём: <br>```docker exec -it app_blog bash ```                                                                                |
 | **3** Подгружаем зависимости : <br>```composer install ```                                                                                                                                 |
-| **4** Копируем настройки env :  <br> Windows ```cp example_config.env .\.env.example.docker ``` <br> Linux  ```cp -r example_config.env /lyceum/.env ```                                   |
+| **4** Копируем настройки env :  <br> Windows ```cp .\.env.example.docker .env  ``` <br> Linux  ```cp -r .env.example.docker .env ```                                                       |
 | **6** Загружаем миграции для базы данных и наполняем их тестовыми данными <br>```php artisan migrate ``` <br> ```php artisan db:seed --class=RoleSeeder ``` <br> ```php artisan db:seed``` |
 | **6** Генерируем ключ   <br>```php artisan key:gen```                                                                                                                                      |
-| **7** Запускаем проект: <br> ``` python .\lyceum\manage.py runserver ```                                                                                                                   |
 
+После проект будет доступен тут ```http://localhost:8876/```
 
-**Запуск без Docker**
+| **Запуск без Docker**                                                                                                                                      |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **1** Заводим env файл: <br>  ```cp .env.example .env```                                                                                                   |
+| **2** Загружаем миграции для базы данных и создаём роли пользователей : <br>  ```php artisan migrate``` <br>  ```php artisan db:seed --class=RoleSeeder``` |
+| **3** Наполняем базу тестовыми данными :  <br>  ```php artisan db:seed```                                                                                  |
+| **4** Копируем настройки env :  <br> Windows ```cp .\.env.example.docker .env ``` <br> Linux  ```cp -r .env.example.docker .env ```                        |
+| **5** Генерируем ключ для нашего приложения :  <br> ```php artisan key:gen```                                                                              |
+| **6** Запускаем сервер : <br>  ```php artisan serve```                                                                                                     |
 
-Windows:                                                                                                                                                                                                  
-**1** Качаем зависимости через composer: ``` composer install```  
-**2** Заводим env файл: ```cp .env.example .env```  
-**3** Загружаем миграции для базы данных и создаём роли пользователей, artisan сам предложит создать базу, соглашаемся с ним. ```php artisan migrate``` <br>  ```php artisan db:seed --class=RoleSeeder```  
-**4** Наполняем базу тестовыми данными  ```php artisan db:seed```   
-**5** Генерируем ключ для нашего приложения  ```php artisan key:gen```  
-**6** Запускаем сервер  ```php artisan serve```                                                                                                                                                           
+После проект будет доступен тут ```http://127.0.0.1:8000/```
