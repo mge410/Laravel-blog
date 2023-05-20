@@ -28,8 +28,7 @@ PS. Команду с загрузкой тестовых данных для р
 | **1** Заводим env файл: <br>  ```cp .env.example .env```                                                                                                   |
 | **2** Загружаем миграции для базы данных и создаём роли пользователей : <br>  ```php artisan migrate``` <br>  ```php artisan db:seed --class=RoleSeeder``` |
 | **3** Наполняем базу тестовыми данными :  <br>  ```php artisan db:seed```                                                                                  |
-| **4** Копируем настройки env :  <br> Windows ```cp .\.env.example.docker .env ``` <br> Linux  ```cp -r .env.example.docker .env ```                        |
-| **5** Генерируем ключ для нашего приложения :  <br> ```php artisan key:gen```                                                                              |
-| **6** Запускаем сервер : <br>  ```php artisan serve```                                                                                                     |
+| **4** Генерируем ключ для нашего приложения :  <br> ```php artisan key:gen```                                                                              |
+| **5** Запускаем сервер : <br>  ```php artisan serve```                                                                                                     |
 
 После проект будет доступен тут ```http://127.0.0.1:8000/```
