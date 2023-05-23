@@ -9,7 +9,11 @@ class IndexController extends Controller
 {
     public function __invoke()
     {
-        $users = User::all();
+        $users = User::select('id', 'name', 'role_id')
+            ->with(['role' => function ($query) {
+                $query->select('id', 'title');
+            }])
+            ->get();
         return view('admin.user.index', compact('users'));
     }
 }

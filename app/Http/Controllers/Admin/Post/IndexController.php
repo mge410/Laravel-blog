@@ -13,7 +13,7 @@ class IndexController extends BaseController
         $data = $request->validated();
 
         $filter = app()->make(PostFilter::class, ['queryParams' => array_filter($data)]);
-        $posts = Post::filter($filter)->get();
+        $posts = Post::filter($filter)->get(['id', 'title']);
 
         return view('admin.post.index', compact('posts'));
     }

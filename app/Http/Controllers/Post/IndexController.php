@@ -13,7 +13,9 @@ class IndexController extends Controller
 {
     public function __invoke(FilterRequest $request)
     {
-        $posts = Post::withCount('comments')->withCount('likes')->paginate(9);
+        $posts = Post::select('id', 'title', 'content', 'preview_image')
+            ->withCount('comments', 'likes')
+            ->paginate(9);
         return view('post.index', compact('posts'));
     }
 }

@@ -19,19 +19,19 @@
         <section>
             <div class="container">
                 <div class="owl-carousel owl-theme blog-slider">
-                    @foreach($randomPost as $post)
+                    @foreach($randomPosts as $randomPost)
                         <div class="card blog__slide text-center">
                             <div class="blog__slide__img">
                                 <img class="card-img rounded-0" width="350px"
                                      height="200px"
-                                     src="{{ str_contains($post->preview_image, 'http') ? $post->preview_image : Storage::url($post->preview_image)}}"
+                                     src="{{ str_contains($randomPost->preview_image, 'http') ? $randomPost->preview_image : Storage::url($randomPost->preview_image)}}"
                                      alt="">
                             </div>
                             <div class="blog__slide__content">
                                 <a class="blog__slide__label"
-                                   href="{{ route('posts.show', $post->id) }}">Read
+                                   href="{{ route('posts.show', $randomPost->id) }}">Read
                                     More</a>
-                                <h3><a href="#"> {{ $post->title }} </a></h3>
+                                <h3><a href="#"> {{ $randomPost->title }} </a></h3>
                             </div>
                         </div>
                     @endforeach
@@ -45,8 +45,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8">
-                        @if($mainPostsList->count() > 0)
-                            @foreach($mainPostsList as $mainPost)
+                        @if($mainPosts->count() > 0)
+                            @foreach($mainPosts as $mainPost)
                                 <div class="single-recent-blog-post">
                                     <div class="thumb">
                                         <img class="img-fluid post-image"
@@ -65,18 +65,18 @@
                                         </ul>
                                     </div>
                                     <div class="details mt-20">
-                                        <a href="blog-single.html">
-                                            <h3>{{ $post->title }}</h3>
+                                        <a href="{{ route('posts.show', $mainPost->id) }}">
+                                            <h3>{{ $mainPost->title }}</h3>
                                         </a>
                                         <p class="tag-list-inline">
                                             Tags:
-                                            @foreach($post->tags as $tag)
+                                            @foreach($mainPost->tags as $tag)
                                                 <a href="#">{{$tag->title}}</a>
                                             @endforeach
                                             </p>
-                                        <p>{{ $post->content }}</p>
+                                        <p>{{ $mainPost->content }}</p>
                                         <a class="button"
-                                           href="{{ route('posts.show', $post->id) }}">Read
+                                           href="{{ route('posts.show', $mainPost->id) }}">Read
                                             More <i class="ti-arrow-right"></i></a>
                                     </div>
                                 </div>

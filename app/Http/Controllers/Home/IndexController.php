@@ -12,11 +12,35 @@ class IndexController extends Controller
 {
     public function __invoke()
     {
-        $categories = Category::withCount('posts')->take(Category::all()->count() < 7 ? Post::all()->count() : 7)->get()->sortByDesc(function ($category) {
-            return $category->posts->count();
-        });
-        $randomPost = Post::get()->random(Post::all()->count() < 6 ? Post::all()->count() : 6);
-        $mainPostsList = Post::withCount('likes')->withCount('comments')->where('is_main', '=', true)->get();
-        return view('home.index', compact('categories', 'randomPost', 'mainPostsList'));
+        $postCount = Post::count();
+        $categoryCount = Category::count();
+
+        $categories = Category::query()->select('title')
+            ->withCount('posts')
+            ->limit(min($categoryCount, 7))
+            ->orderByDesc('posts_count')
+            ->get();
+
+        $randomPosts = Post::where('is_main', false)
+            ->inRandomOrder()
+            ->limit(min($postCount, 6))
+            ->get(['id', 'title', 'preview_image', 'content']);
+
+        $mainPosts = Post::with(['tags' => function ($query) {
+            $query
+                ->select('tags.id', 'tags.title');
+        }])
+            ->withCount('likes', 'comments')
+            ->where('is_main', '=', true)
+            ->get(['id', 'title', 'preview_image', 'content']);
+
+        return view(
+            'home.index',
+            compact(
+                'categories',
+                'randomPosts',
+                'mainPosts'
+            )
+        );
     }
 }

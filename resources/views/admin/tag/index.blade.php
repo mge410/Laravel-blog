@@ -54,7 +54,7 @@
                             @foreach($tags as $tag)
                                 <tr>
                                     <td> {{$tag->id}} </td>
-                                    <td> <a href=" {{ route('admin.post.show', $tag->id) }} ">{{$tag->title}} </a></td>
+                                    <td> <a href=" {{ route('admin.tag.show', $tag->id) }} ">{{$tag->title}} </a></td>
                                 </tr>
                             @endforeach
                             </tbody>
