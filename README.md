@@ -20,6 +20,7 @@ PS. Команду с загрузкой тестовых данных для р
 | **4** Копируем настройки env :  <br> Windows ```cp .\.env.example.docker .env  ``` <br> Linux  ```cp -r .env.example.docker .env ```                                                       |
 | **6** Загружаем миграции для базы данных и наполняем их тестовыми данными <br>```php artisan migrate ``` <br> ```php artisan db:seed --class=RoleSeeder ``` <br> ```php artisan db:seed``` |
 | **6** Генерируем ключ   <br>```php artisan key:gen```                                                                                                                                      |
+| **7** Создаём link для storage    <br>```php artisan storage:link```                                                                                                                       |
 
 | **Запуск без Docker**                                                                                                                                      |
 |------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -28,6 +29,7 @@ PS. Команду с загрузкой тестовых данных для р
 | **3** Загружаем миграции для базы данных и создаём роли пользователей : <br>  ```php artisan migrate``` <br>  ```php artisan db:seed --class=RoleSeeder``` |
 | **4** Наполняем базу тестовыми данными :  <br>  ```php artisan db:seed```                                                                                  |
 | **5** Генерируем ключ для нашего приложения :  <br> ```php artisan key:gen```                                                                              |
-| **6** Запускаем сервер : <br>  ```php artisan serve```                                                                                                     |
+| **6** Создаём link для storage    <br>```php artisan storage:link```                                                                                       |
+| **7** Запускаем сервер : <br>  ```php artisan serve```                                                                                                     |
 
 После проект будет доступен тут ```http://127.0.0.1:8000/```
