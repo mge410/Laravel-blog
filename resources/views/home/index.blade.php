@@ -56,9 +56,20 @@
                                             <li><i
                                                         class="ti-notepad"></i>{{$mainPost->created_at}}
                                                 </li>
-                                            <li><a href="#"><i
+                                            @auth()
+                                            <li>
+                                                <form action="{{ route('posts.like.store', $mainPost->id) }}">
+                                                    @csrf
+                                                    <button class="border-0 bg-transparent" type="submit"><i
                                                         class="ti-heart"></i>{{$mainPost->likes_count}}
-                                                </a></li>
+                                                </button></form></li>
+                                            @endauth
+                                            @guest()
+                                                <li>
+                                                        <span class="border-0 bg-transparent" type="submit"><i
+                                                                class="ti-heart"></i>{{$mainPost->likes_count}}
+                                                        </span></li>
+                                            @endguest
                                             <li><a href="#"><i
                                                         class="ti-themify-favicon"></i>{{$mainPost->comments_count}}
                                                     Comments</a></li>

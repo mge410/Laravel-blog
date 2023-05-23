@@ -22,7 +22,20 @@
                                             <img class="card-img rounded-0" src="{{ str_contains($post->preview_image, 'http') ? $post->preview_image : Storage::url($post->preview_image)}}" alt="">
                                             <ul class="thumb-info">
                                                 <li><a href="#"><i class="ti-themify-favicon"></i>{{ $post->comments_count }} Comments</a></li>
-                                                <li><a href="#"><i class="ti-heart"></i>{{ $post->likes_count }} Likes</a></li>
+                                                @auth()
+                                                    <li>
+                                                        <form action="{{ route('posts.like.store', $post->id) }}">
+                                                            @csrf
+                                                            <button class="border-0 bg-transparent" type="submit"><i
+                                                                    class="ti-heart"></i>{{$post->likes_count}}
+                                                            </button></form></li>
+                                                @endauth
+                                                @guest()
+                                                    <li>
+                                                        <span class="border-0 bg-transparent" type="submit"><i
+                                                                class="ti-heart"></i>{{$post->likes_count}}
+                                                        </span></li>
+                                                @endguest
                                             </ul>
                                         </div>
                                         <div class="details mt-20">
