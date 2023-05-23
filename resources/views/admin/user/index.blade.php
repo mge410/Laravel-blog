@@ -55,7 +55,7 @@
                             @foreach($users as $user)
                                 <tr>
                                     <td> {{$user->id}} </td>
-                                    <td> <a href=" {{ route('admin.post.show', $user->id) }} ">{{$user->name}} </a></td>
+                                    <td> <a href=" {{ route('admin.user.show', $user->id) }} ">{{$user->name}} </a></td>
                                     <td> {{$user->role->title}} </a></td>
                                 </tr>
                             @endforeach
