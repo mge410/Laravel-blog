@@ -13,6 +13,9 @@ Route::group(['namespace' => 'Post', 'prefix' => 'posts'], function () {
     Route::group(['namespace' => 'Like', 'prefix' => '/{post}/likes'], function () {
         Route::get('/', 'StoreController')->name('posts.like.store');
     });
+    Route::group(['namespace' => 'Comment', 'prefix' => '/{post}/comment'], function () {
+        Route::get('/', 'StoreController')->name('posts.comment.store');
+    });
 });
 
 Route::group(['namespace' => 'Contact', 'prefix' => 'contact'], function () {
