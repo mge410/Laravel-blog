@@ -31,7 +31,7 @@
                                 <a class="blog__slide__label"
                                    href="{{ route('posts.show', $randomPost->id) }}">Read
                                     More</a>
-                                <h3><a href="#"> {{ $randomPost->title }} </a></h3>
+                                <h3><a href="{{ route('posts.show', $randomPost->id) }}"> {{ $randomPost->title }} </a></h3>
                             </div>
                         </div>
                     @endforeach

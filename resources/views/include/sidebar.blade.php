@@ -3,52 +3,22 @@
         <div class="single-sidebar-widget popular-post-widget">
             <h4 class="single-sidebar-widget__title">Популярные посты</h4>
             <div class="popular-post-list">
-
+                @foreach($popularPosts as $popularPost)
                 <div class="single-post-list">
                     <div class="thumb">
-                        <img class="card-img rounded-0" src="img/blog/thumb/thumb1.png" alt="">
+                        <img class="card-img rounded-0" src="{{ str_contains($popularPost->preview_image, 'http') ? $popularPost->preview_image : Storage::url($popularPost->preview_image)}}" alt="">
                         <ul class="thumb-info">
-                            <li><a href="#">Adam Colinge</a></li>
-                            <li><a href="#">Dec 15</a></li>
+                            <li><a href="{{ route('posts.show', $popularPost->id) }}">{{ $popularPost->title }}</a></li>
+                            <li><a href="{{ route('posts.show', $popularPost->id) }}">{{ $popularPost->getDateCarbon()->format('Y-m-d') }}</a></li>
                         </ul>
                     </div>
                     <div class="details mt-20">
                         <a href="blog-single.html">
-                            <h6>Accused of assaulting flight attendant miktake alaways</h6>
+                            <h6>{{ Str::limit($popularPost->content) }}</h6>
                         </a>
                     </div>
                 </div>
-
-                <div class="single-post-list">
-                    <div class="thumb">
-                        <img class="card-img rounded-0" src="img/blog/thumb/thumb2.png" alt="">
-                        <ul class="thumb-info">
-                            <li><a href="#">Adam Colinge</a></li>
-                            <li><a href="#">Dec 15</a></li>
-                        </ul>
-                    </div>
-                    <div class="details mt-20">
-                        <a href="blog-single.html">
-                            <h6>Tennessee outback steakhouse the
-                                worker diagnosed</h6>
-                        </a>
-                    </div>
-                </div>
-                <div class="single-post-list">
-                    <div class="thumb">
-                        <img class="card-img rounded-0" src="img/blog/thumb/thumb3.png" alt="">
-                        <ul class="thumb-info">
-                            <li><a href="#">Adam Colinge</a></li>
-                            <li><a href="#">Dec 15</a></li>
-                        </ul>
-                    </div>
-                    <div class="details mt-20">
-                        <a href="blog-single.html">
-                            <h6>Tennessee outback steakhouse the
-                                worker diagnosed</h6>
-                        </a>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
 
@@ -71,30 +41,11 @@
         <div class="single-sidebar-widget tag_cloud_widget">
             <h4 class="single-sidebar-widget__title">Популярные тэги</h4>
             <ul class="list">
+                @foreach($popularTags as $popularTag)
                 <li>
-                    <a href="#">project</a>
+                    <a href="#">{{ $popularTag->title }}</a>
                 </li>
-                <li>
-                    <a href="#">love</a>
-                </li>
-                <li>
-                    <a href="#">technology</a>
-                </li>
-                <li>
-                    <a href="#">travel</a>
-                </li>
-                <li>
-                    <a href="#">software</a>
-                </li>
-                <li>
-                    <a href="#">life style</a>
-                </li>
-                <li>
-                    <a href="#">design</a>
-                </li>
-                <li>
-                    <a href="#">illustration</a>
-                </li>
+                @endforeach
             </ul>
         </div>
     </div>
