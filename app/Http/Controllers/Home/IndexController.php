@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Post;
 
 use App\Models\Tag;
+
 use function view;
 
 class IndexController extends Controller
