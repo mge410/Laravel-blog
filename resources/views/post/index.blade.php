@@ -1,14 +1,24 @@
 @extends('layouts.main')
 @section('content')
     <main class="site-main">
-{{--        <div class="row flex-column align-items-center">--}}
-{{--            <div class="row col-8">--}}
-{{--                <form action="" class="form" method="get">--}}
-{{--                    <label for="title">Title</label>--}}
-{{--                    <input type="text" name="title" value="{{ old('title') }}">--}}
-{{--                </form>--}}
-{{--            </div>--}}
-{{--        </div>--}}
+        <div class="row flex-column align-items-center justify-content-center">
+            <form action="" class="row col-4 filter-form flex-wrap pr-5" method="get">
+                <div class=""><p class="text-center display-3 pt-3">Filter</p></div>
+                <div class="col-6">
+                    <div class="col-6">
+                        <label class="d-block" for="title">Title</label>
+                        <input class="d-block" type="text" name="title" value="{{ old('title') }}">
+                    </div>
+                    <div class="col-6">
+                        <label class="d-block" for="content">Content</label>
+                        <input class="d-block" type="text" name="content" value="{{ old('content') }}">
+                    </div>
+                    <div class="mw-100 row flex-column justify-content-end mw-100 form-item m-4">
+                        <button class="button d-block" type="submit">Применить</button>
+                    </div>
+                </div>
+            </form>
+        </div>
         <!--================ Start Blog Post Area =================-->
         <section class="blog-post-area section-margin">
             <div class="container">
@@ -49,7 +59,7 @@
                                 </div>
                             @endforeach
                         </div>
-                    {{ $posts->links() }}
+                    {{ $posts->appends(request()->query())->links() }}
                 </div>
             </div>
         </section>

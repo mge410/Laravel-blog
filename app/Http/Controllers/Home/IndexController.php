@@ -14,7 +14,7 @@ class IndexController extends Controller
 {
     public function __invoke()
     {
-        $categories = Category::query()->select('title')
+        $categories = Category::query()->select('id', 'title')
             ->withCount('posts')
             ->limit(7)
             ->orderByDesc('posts_count')
