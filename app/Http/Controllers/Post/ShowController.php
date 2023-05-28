@@ -12,7 +12,7 @@ class ShowController extends BaseController
 {
     public function __invoke(Post $post)
     {
-        $categories = Category::query()->select('title')
+        $categories = Category::query()->select('id', 'title')
             ->withCount('posts')
             ->limit(7)
             ->orderByDesc('posts_count')
