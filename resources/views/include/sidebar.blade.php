@@ -13,7 +13,7 @@
                         </ul>
                     </div>
                     <div class="details mt-20">
-                        <a href="blog-single.html">
+                        <a href="{{ route('posts.show', $popularPost->id) }}">
                             <h6>{{ Str::limit($popularPost->content) }}</h6>
                         </a>
                     </div>
@@ -28,7 +28,7 @@
                 <ul class="cat-list mt-20">
                     @foreach($categories as $category)
                         <li>
-                            <a href="#" class="d-flex justify-content-between">
+                            <a href="{{ route('posts.index') }}?category_id={{$category->id}}" class="d-flex justify-content-between">
                                 <p> {{$category->title}} </p>
                                 <p>({{ $category->posts_count }})</p>
                             </a>
@@ -43,7 +43,7 @@
             <ul class="list">
                 @foreach($popularTags as $popularTag)
                 <li>
-                    <a href="#">{{ $popularTag->title }}</a>
+                    <a class="disabled" onclick="return false" href="">{{ $popularTag->title }}</a>
                 </li>
                 @endforeach
             </ul>

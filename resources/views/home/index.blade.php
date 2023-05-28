@@ -70,7 +70,7 @@
                                                                 class="ti-heart"></i>{{$mainPost->likes_count}}
                                                         </span></li>
                                             @endguest
-                                            <li><a href="#"><i
+                                            <li><a href="{{ route('posts.show', $mainPost->id) }}"><i
                                                         class="ti-themify-favicon"></i>{{$mainPost->comments_count}}
                                                     Comments</a></li>
                                         </ul>
@@ -82,7 +82,7 @@
                                         <p class="tag-list-inline">
                                             Tags:
                                             @foreach($mainPost->tags as $tag)
-                                                <a href="#">{{$tag->title}}</a>
+                                                <a href="{{ route('posts.show', $mainPost->id) }}">{{$tag->title}}</a>
                                             @endforeach
                                             </p>
                                         <p>{{ $mainPost->content }}</p>
